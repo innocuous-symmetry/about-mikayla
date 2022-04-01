@@ -15,6 +15,7 @@ export default function Projects() {
             <p>I also have experience with various technologies for connecting these to front-end applications, including Prisma and Supabase.</p>
         </section>
     
+        <a href="/">Go home</a>
         </>
     )
 }
