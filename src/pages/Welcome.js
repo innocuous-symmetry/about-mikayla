@@ -1,38 +1,50 @@
+import Paper from '@mui/material/Paper';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import profile from '../media/profile.jpeg';
+
+import { DocumentStyle, WelcomePage } from '../styles/Style';
+
+const { pageTheme, galleryTheme, cardTheme } = WelcomePage;
+
+const { colorThemes, linkStyle } = DocumentStyle;
+const { themeA } = colorThemes;
+
+
 export default function Welcome() {
     return (
-        <div className="Welcome page">
-            <header className="landing-section">
-            </header>
-
-            <main>
+        <div style={pageTheme}>
+            <header className="welcome-header">
                 <h1>Mikayla Dobson</h1>
                 <h2>Web Design Contractor</h2>
+            </header>
 
+            <div className="landing">
+                <Avatar alt="Mikayla Dobson" src={profile} sx={{width: 100, height: 100}} />
                 <h3>Hi, my name is Mikayla! I'm a junior-level full stack web developer.</h3>
                 <p>I excel in building well-structured and maintainable web applications, managing algorithmic complexity, and adapting my workflow to fit the needs of any environment I should find myself in.</p>
+            </div>
 
-                <h3>So, thanks for stopping by! Feel free to peruse below:</h3>
-                
-                <div className="gallery">
+            <h3 className="do-stuff">Thanks for visiting! Feel free to peruse below:</h3>
+            
+            <div style={galleryTheme} className="gallery">
+                <Paper elevation={5} sx={[themeA, cardTheme]}>
+                    <Button href="/projects" sx={linkStyle}>What kinds of things do I do?</Button>
+                </Paper>
 
-                    <div className="card">
-                        <a href="/projects">What kinds of things do I do?</a>
-                    </div>
+                <Paper elevation={5} sx={[themeA, cardTheme]}>
+                    <Button href="/technologies" sx={linkStyle}>What do I use to do it?</Button>
+                </Paper>
 
-                    <div className="card">
-                        <a href="/technologies">What do I use to do it?</a>
-                    </div>
+                <Paper elevation={5} sx={[themeA, cardTheme]}>
+                    <Button href="/in-progress" sx={linkStyle}>What projects am I working on now?</Button>
+                </Paper>
 
-                    <div className="card">
-                        <a href="/in-progress">What projects am I working on now?</a>
-                    </div>
+                <Paper elevation={5} sx={[themeA, cardTheme]}>
+                    <Button href="/links" sx={linkStyle}>Where can you find more about me and my work?</Button>
+                </Paper>
 
-                    <div className="card">
-                        <a href="/links">Where can you find more about me and my work?</a>
-                    </div>
-
-                </div>
-            </main>
+            </div>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import Projects from './pages/Projects';
 import Technologies from './pages/Technologies';
 import Links from './pages/Links';
 import InProgress from './pages/InProgress';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
