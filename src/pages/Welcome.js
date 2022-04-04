@@ -9,7 +9,7 @@ import { DocumentStyle, WelcomePage } from '../styles/Style';
 
 const { pageTheme, galleryTheme, cardTheme } = WelcomePage;
 
-const { colorThemes, linkStyle } = DocumentStyle;
+const { colorThemes, linkStyle, buttonStyle } = DocumentStyle;
 const { themeA } = colorThemes;
 
 
@@ -25,9 +25,7 @@ export default function Welcome() {
             <h3 className="do-stuff">Thanks for visiting! Feel free to peruse below:</h3>
             
             <div style={galleryTheme} className="gallery">
-                <Paper elevation={5} sx={[themeA, cardTheme]}>
-                    <Button href="/projects" sx={linkStyle}>What kinds of things do I do?</Button>
-                </Paper>
+                <Button variant="contained" href="/projects" sx={buttonStyle}>What kinds of things do I do?</Button>
 
                 <Paper elevation={5} sx={[themeA, cardTheme]}>
                     <Button href="/technologies" sx={linkStyle}>What do I use to do it?</Button>
