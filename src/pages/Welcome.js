@@ -27,14 +27,21 @@ export default function Welcome() {
     const cardFour = useRef();
     const cardFive = useRef();
 
-    const allRefs = [cardOne, cardTwo, cardThree, cardFour, cardFive];
+    const buttonOne = useRef();
+    const buttonTwo = useRef();
+    const buttonThree = useRef();
+    const buttonFour = useRef();
+    const buttonFive = useRef();
+
+    const allCardRefs = [cardOne, cardTwo, cardThree, cardFour, cardFive];
+    const allButtonRefs = [buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive];
 
     const galleryButtons = [
-        <Button variant="contained" href="/projects" sx={buttonStyle}>What kinds of things do I do?</Button>,
-        <Button variant="contained" href="/technologies" sx={buttonStyle}>What do I use to do it?</Button>,
-        <Button variant="contained" href="/in-progress" sx={buttonStyle}>What projects am I working on now?</Button>,
-        <Button variant="contained" href="/links" sx={buttonStyle}>Where can you find more about me and my work?</Button>,
-        <Button variant="contained" href="/creative-works" sx={buttonStyle}>Where can I listen to some of your music?</Button>
+        <Button ref={buttonOne} variant="contained" href="/projects" sx={buttonStyle}>What kinds of things do I do?</Button>,
+        <Button ref={buttonTwo} variant="contained" href="/technologies" sx={buttonStyle}>What do I use to do it?</Button>,
+        <Button ref={buttonThree} variant="contained" href="/in-progress" sx={buttonStyle}>What projects am I working on now?</Button>,
+        <Button ref={buttonFour} variant="contained" href="/links" sx={buttonStyle}>Where can you find more about me and my work?</Button>,
+        <Button ref={buttonFive} variant="contained" href="/creative-works" sx={buttonStyle}>Where can I listen to some of your music?</Button>
     ]
 
     // handle gallery debug
@@ -43,15 +50,15 @@ export default function Welcome() {
             galleryButtons[gallery[0]], galleryButtons[gallery[1]]
         ]);
 
-        for (let each of allRefs) {
-            each.current.style.backgroundColor = "blue";
+        for (let each of allCardRefs) {
+            each.current.style.backgroundColor = '#ede7f6';
         }
 
         for (let each of gallery) {
-            allRefs[each].current.style.backgroundColor = "purple";
+            allCardRefs[each].current.style.backgroundColor = "#283593";
         }
 
-    }, [allRefs, gallery]);
+    }, [allCardRefs, gallery]);
 
     const handleDecrement = () => {
         let newState = [];
