@@ -1,3 +1,5 @@
+import '../App.scss';
+
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -14,13 +16,8 @@ const { themeA } = colorThemes;
 export default function Welcome() {
     return (
         <div style={pageTheme}>
-            <header className="welcome-header">
-                <h1>Mikayla Dobson</h1>
-                <h2>Web Design Contractor</h2>
-            </header>
-
             <div className="landing">
-                <Avatar alt="Mikayla Dobson" src={profile} sx={{width: 100, height: 100}} />
+                <Avatar alt="Mikayla Dobson" src={profile} sx={{width: 110, height: 110}} />
                 <h3>Hi, my name is Mikayla! I'm a junior-level full stack web developer.</h3>
                 <p>I excel in building well-structured and maintainable web applications, managing algorithmic complexity, and adapting my workflow to fit the needs of any environment I should find myself in.</p>
             </div>
