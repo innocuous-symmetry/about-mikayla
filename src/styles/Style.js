@@ -1,50 +1,6 @@
-import { red, green, pink, deepPurple, purple } from '@mui/material/colors';
-
-// export const useStyles = ({
-//     colorThemeA: {
-//         backgroundColor: pink[50],
-//         color: deepPurple[300]
-//     },
-//     html: {
-//         backgroundColor: purple[200],
-//     },
-//     muiButtonA: {
-//         backgroundColor: deepPurple[200],
-//         color: deepPurple[500],
-//         '&:hover': {
-//             backgroundColor: purple[400],
-//         }
-//     },
-//     welcomePage: {
-//         display: 'flex',
-//         backgroundColor: purple[100],
-//         height: '100vh',
-//         flexDirection: 'column',
-//         alignItems: 'center',
-//         overflowX: 'hidden'
-//     },
-//     gallery: {
-//         display: 'flex',
-//         width: '90vw',
-//         justifyContent: 'center',
-//     },
-//     card: {
-//         width: '250px',
-//         height: '250px',
-//         margin: '2rem',
-//         display: 'flex',
-//         alignItems: 'center',
-//         justifyContent: 'center',  
-//     }
-// });
+import { indigo, pink, deepPurple, purple } from '@mui/material/colors';
 
 export const DocumentStyle = {
-    colorThemes: {
-        themeA: {
-            backgroundColor: pink[50],
-            color: deepPurple[300]
-        },
-    },
     htmlTheme: {
         backgroundColor: purple[200]
     },
@@ -57,7 +13,27 @@ export const DocumentStyle = {
         color: deepPurple[500],
         '&:hover': {
             backgroundColor: purple[400],
+            color: deepPurple[50],
+        },
+        width: '25vw',
+        height: '10rem',
+        margin: '2rem',
+    },
+    galleryArrowStyle: {
+        width: '8vw',
+        height: '10rem',
+        display: 'flex',
+        justifyContent: 'center',
+        color: deepPurple[50],
+        backgroundColor: deepPurple[500],
+        '&:hover': {
+            backgroundColor: indigo[800],
         }
+    },
+    galleryCards: {
+        width: '3rem',
+        height: '1rem',
+        margin: '0.8rem'
     }
 }
 
@@ -72,15 +48,25 @@ export const WelcomePage = {
     },
     galleryTheme: {
         display: 'flex',
-        width: '90vw',
+        flexDirection: 'column',
+        width: '95vw',
+        height: '18rem',
+    },
+    galleryRow: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    galleryPages: {
+        display: 'flex',
         justifyContent: 'center',
     },
-    cardTheme: {
-        width: '250px',
-        height: '250px',
-        margin: '2rem',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+    galleryPage: {
+        inactive: {
+            backgroundColor: deepPurple[50],
+        },
+        active: {
+            backgroundColor: indigo[800]
+        }
     }
 }

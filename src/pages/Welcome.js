@@ -1,21 +1,33 @@
 import '../App.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
-import Paper from '@mui/material/Paper';
+// MUI components
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
 import profile from '../media/profile.jpeg';
+
+// SX style object imports
 
 import { DocumentStyle, WelcomePage } from '../styles/Style';
 
-const { pageTheme, galleryTheme, cardTheme } = WelcomePage;
+const { pageTheme, galleryTheme, galleryRow, galleryPages, galleryPage } = WelcomePage;
+const { buttonStyle, galleryArrowStyle, galleryCards } = DocumentStyle;
 
-const { colorThemes, linkStyle, buttonStyle } = DocumentStyle;
-const { themeA } = colorThemes;
-
+// Web page logic
 
 export default function Welcome() {
     const [gallery, setGallery] = useState([0,1]);
+    const [rendered, setRendered] = useState();
+
+    const cardOne = useRef();
+    const cardTwo = useRef();
+    const cardThree = useRef();
+    const cardFour = useRef();
+    const cardFive = useRef();
+
+    const allRefs = [cardOne, cardTwo, cardThree, cardFour, cardFive];
 
     const galleryButtons = [
         <Button variant="contained" href="/projects" sx={buttonStyle}>What kinds of things do I do?</Button>,
@@ -27,10 +39,33 @@ export default function Welcome() {
 
     // handle gallery debug
     useEffect(() => {
-        console.log(gallery);
-    }, [gallery]);
+        setRendered([
+            galleryButtons[gallery[0]], galleryButtons[gallery[1]]
+        ]);
 
-    const handleGallery = () => {
+        for (let each of allRefs) {
+            each.current.style.backgroundColor = "blue";
+        }
+
+        for (let each of gallery) {
+            allRefs[each].current.style.backgroundColor = "purple";
+        }
+
+    }, [allRefs, gallery]);
+
+    const handleDecrement = () => {
+        let newState = [];
+        for (let each of gallery) {
+            let newNum = each - 1;
+            if (newNum === -1) {
+                newNum = galleryButtons.length - 1;
+            }
+            newState.push(newNum);
+        }
+        setGallery(newState);
+    }
+
+    const handleIncrement = () => {
         let newState = [];
         for (let each of gallery) {
             let newNum = (each + 1) % galleryButtons.length;
@@ -52,11 +87,19 @@ export default function Welcome() {
             <h3 className="do-stuff">Thanks for visiting! Feel free to peruse below:</h3>
             
             <div style={galleryTheme} className="gallery">
-                {galleryButtons[gallery[0]]}
-                {galleryButtons[gallery[1]]}
+                <div style={galleryRow}>
+                    <Button sx={galleryArrowStyle} onClick={handleDecrement}>{'<'}</Button>
+                    {rendered}
+                    <Button sx={galleryArrowStyle} onClick={handleIncrement}>{'>'}</Button>
+                </div>
+                <div style={galleryPages}>
+                    <Card ref={cardOne} sx={galleryCards} />
+                    <Card ref={cardTwo} sx={galleryCards} />
+                    <Card ref={cardThree} sx={galleryCards} />
+                    <Card ref={cardFour} sx={galleryCards} />
+                    <Card ref={cardFive} sx={galleryCards} />
+                </div>
             </div>
-
-            <Button variant="contained" onClick={handleGallery}>Gallery?</Button>
         </div>
-    )
+    );
 }
