@@ -11,13 +11,25 @@ $purple200: #ce93d8;
 header {
   background-color: $purple200;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   border-bottom: 1px solid black;
   font-family: 'Open Sans', sans-serif;
-  .my-name {
+  a {
+    transition: color 150ms ease;
+    color: black;
     font-weight: 900;
+    font-size: 2rem;
+    padding-left: 1rem;
     border-right: 1px solid black;
     padding-right: 1rem;
+    text-decoration: none;
+    &:visited {
+      color: inherit;
+    }
+    &:hover {
+      color: purple;
+      transition: color 150ms ease;
+    }
   }
   h2 {
     font-weight: 400;

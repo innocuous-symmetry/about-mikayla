@@ -44,9 +44,9 @@ export default function Welcome() {
     const allButtonRefs = [buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive];
 
     const galleryButtons = [
-        <Button ref={buttonOne} variant="contained" href="/projects" sx={buttonStyle}>What kinds of things do I do?</Button>,
+        <Button ref={buttonOne} variant="contained" href="/about-me" sx={buttonStyle}>What kinds of things do I do?</Button>,
         <Button ref={buttonTwo} variant="contained" href="/technologies" sx={buttonStyle}>What do I use to do it?</Button>,
-        <Button ref={buttonThree} variant="contained" href="/in-progress" sx={buttonStyle}>What projects am I working on now?</Button>,
+        <Button ref={buttonThree} variant="contained" href="/projects" sx={buttonStyle}>What projects am I working on now?</Button>,
         <Button ref={buttonFour} variant="contained" href="/links" sx={buttonStyle}>Where can you find more about me and my work?</Button>,
         <Button ref={buttonFive} variant="contained" href="/creative-works" sx={buttonStyle}>Where can I listen to some of your music?</Button>
     ];

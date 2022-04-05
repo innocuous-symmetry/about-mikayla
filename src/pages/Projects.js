@@ -1,37 +1,39 @@
-import '../App.scss';
-import { DocumentStyle, ProjectsPage } from '../styles/Style';
-
-import Card from '@mui/material/Card';
-import Grid from '@mui/material/Grid';
-
-const { htmlTheme } = DocumentStyle;
-const { headerCard, projectCards, cardDimensions } = ProjectsPage;
-
 export default function Projects() {
     return (
-        <div style={htmlTheme}>
-            <Card sx={[headerCard, cardDimensions]}>What I Do:</Card>
+        <div className="In-Progress page">
+            <h1>Here are some of my current in-progress projects!</h1>
 
-            <Card sx={[projectCards, cardDimensions]}>
-                <h2>Create full stack web applications</h2>
-                <p>I have experience building web applications with and without back-end integrations.</p>
-                <p>I am comfortable conceptualizing and organizing complex structures, and as such, my projects tend to be natural in their structure and easy to maintain.</p>
-            </Card>
+            <div className="gallery">
+                <div className="card">
+                    <h1>Reddit, but it's all cats</h1>
+                    <p>A read-only Reddit client -- this site fetches data from Reddit and curates a customizable feed.</p>
+                    <p>Built using React/Redux</p>
+                </div>
 
-            <Card sx={[projectCards, cardDimensions]}>
-                <h2>Creative minded problem solver</h2>
-                <p>My rich creative background as a musician, composer, producer, and artistic collaborator provide me with a unique frame of reference for
-                    solving technical problems and adapting to dynamic environments.</p>
-                <a href="/">See some of my creative works for examples of my aptitudes, as well as some thoughts on how they apply to work as a developer!</a>
-            </Card>
+                <div className="card">
+                    <h1>Musical Counterpoint Bot</h1>
+                    <p>A web-based program with functionality to evaluate sample solutions of problems in species-based counterpoint, as detailed by Johann Fux in <em>Gradus ad Parnassum.</em></p>
+                    <p>This project is intended to be used as a practical application of linked lists and other compound data structures in JavaScript.</p>
+                </div>
 
-            <Card sx={[projectCards, cardDimensions]}>
-                <h2>Database Operations and Management</h2>
-                <p>My projects have featured both relational and non-relational databases, in particular PostgreSQL and MongoDB.</p>
-                <p>I also have experience with various technologies for connecting these to front-end applications, including Prisma and Supabase.</p>
-            </Card>
-        
-            <a href="/">Go home</a>
+                <div className="card">
+                    <h1>(untitled) Online Guess-the-Word Game</h1>
+                    <p>As part of a mentorship program hosted by Metazu Studio</p>
+                    <p>Implemented using MongoDB, React, and Node/Express, using Material UI for front-end styling.</p>
+                </div>
+                
+                <div className="card">
+                    <h1>Splinter</h1>
+                    <p>A clone of a popular card-based resource gathering game</p>
+                    <p>Local multiplayer, with plans to build out online multiplayer and solo vs. CPU</p>
+                </div>
+
+                <div className="card">
+                    <h1>And, last but not least, the site you see here!</h1>
+                    <p>This site is built using React, Material UI, and SCSS, and is hosted on Github Pages.</p>
+                </div>
+
+            </div>
         </div>
     )
 }
