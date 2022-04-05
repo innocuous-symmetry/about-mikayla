@@ -1,18 +1,19 @@
 import '../App.scss';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 
 // MUI components
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
+import Divider from '@mui/material/Divider';
 import profile from '../media/profile.jpeg';
 
 // SX style object imports
 
 import { DocumentStyle, WelcomePage } from '../styles/Style';
 
-const { pageTheme, galleryTheme, galleryRow, galleryPages, galleryPage } = WelcomePage;
+const { pageTheme, galleryTheme, galleryRow, galleryPages, galleryPage, welcomeFooter } = WelcomePage;
 const { buttonStyle, galleryArrowStyle, galleryCards } = DocumentStyle;
 
 // Web page logic
@@ -42,7 +43,7 @@ export default function Welcome() {
         <Button ref={buttonThree} variant="contained" href="/in-progress" sx={buttonStyle}>What projects am I working on now?</Button>,
         <Button ref={buttonFour} variant="contained" href="/links" sx={buttonStyle}>Where can you find more about me and my work?</Button>,
         <Button ref={buttonFive} variant="contained" href="/creative-works" sx={buttonStyle}>Where can I listen to some of your music?</Button>
-    ]
+    ];
 
     // handle gallery debug
     useEffect(() => {
@@ -58,7 +59,7 @@ export default function Welcome() {
             allCardRefs[each].current.style.backgroundColor = "#283593";
         }
 
-    }, [allCardRefs, gallery]);
+    }, [gallery]);
 
     const handleDecrement = () => {
         let newState = [];
@@ -92,6 +93,8 @@ export default function Welcome() {
             </div>
 
             <h3 className="do-stuff">Thanks for visiting! Feel free to peruse below:</h3>
+
+            <Divider orientation="horizontal" sx={{width: '90%', color: '#000000', borderWidth: '2px'}} />
             
             <div style={galleryTheme} className="gallery">
                 <div style={galleryRow}>
@@ -107,6 +110,12 @@ export default function Welcome() {
                     <Card ref={cardFive} sx={galleryCards} />
                 </div>
             </div>
+
+            <Divider orientation="horizontal" sx={{width: '90%', color: '#000000', borderWidth: '2px'}} />
+
+            <footer sx={welcomeFooter}>
+                <p>&copy; Mikayla Dobson 2022</p>
+            </footer>
         </div>
     );
 }

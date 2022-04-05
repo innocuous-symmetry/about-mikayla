@@ -1,8 +1,8 @@
-import { indigo, pink, deepPurple, purple } from '@mui/material/colors';
+import { indigo, blue, pink, green, deepPurple, purple } from '@mui/material/colors';
 
 export const DocumentStyle = {
     htmlTheme: {
-        backgroundColor: purple[200]
+        backgroundColor: purple[100],
     },
     linkStyle: {
         color: deepPurple[300],
@@ -34,6 +34,11 @@ export const DocumentStyle = {
         width: '3rem',
         height: '1rem',
         margin: '0.8rem'
+    },
+    dividerStyle: {
+        width: '90%',
+        color: '#000000',
+        borderWidth: '2px'
     }
 }
 
@@ -51,6 +56,7 @@ export const WelcomePage = {
         flexDirection: 'column',
         width: '95vw',
         height: '18rem',
+        padding: '3rem',
     },
     galleryRow: {
         display: 'flex',
@@ -68,5 +74,29 @@ export const WelcomePage = {
         active: {
             backgroundColor: indigo[800]
         }
+    },
+    welcomeFooter: {
+        display: 'block',
+        textAlign: 'right'
+    }
+}
+
+export const ProjectsPage = {
+    headerCard: {
+        backgroundColor: green['A700']
+    },
+    projectCards: {
+        backgroundColor: indigo[800],
+        color: indigo[100],
+    },
+    cardDimensions: {
+        width: '300px',
+        height: '300px',
+    }
+}
+
+export const TechnologiesPage = {
+    technologyCard: {
+        backgroundColor: indigo[50]
     }
 }

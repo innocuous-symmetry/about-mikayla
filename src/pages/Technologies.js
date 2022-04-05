@@ -1,87 +1,48 @@
+import Card from '@mui/material/Card';
+import Chip from '@mui/material/Chip';
+
+import { TechnologiesPage } from '../styles/Style';
+
+const { technologyCard } = TechnologiesPage;
+
 export default function Technologies() {
     return (
-        <div className="Technologies page">
-            <h1>What technologies do I use?</h1>
+        <div>
+            <Card sx={technologyCard}>
+                <h1>What technologies do I use?</h1>
+            </Card>
 
-            <section>
+            <Card sx={technologyCard}>
                 <h2>These are my most often-used technologies:</h2>
 
-                <div className="card">
-                    {/* React logo */}
-                    <p>React</p>
-                </div>
+                <Chip label="React" />
+                <Chip label="Redux" />
+                <Chip label="Express" />
+                <Chip label="PostgreSQL" />
+                <Chip label="Supabase" />
+                <Chip label="MongoDB" />
 
-                <div className="card">
-                    {/* Redux logo */}
-                    <p>Redux</p>
-                </div>
+            </Card>
 
-                <div className="card">
-                    {/* Express logo */}
-                    <p>Express</p>
-                </div>
-
-                <div className="card">
-                    {/* Postgres logo */}
-                    <p>PostgreSQL</p>
-                </div>
-
-                <div className="card">
-                    {/* Supabase */}
-                    <p>Supabase</p>
-                </div>
-
-            </section>
-
-            <section>
+            <Card sx={technologyCard}>
                 <h2>Here are some I use relatively often:</h2>
 
-                <div className="card">
-                    {/* Mongo logo */}
-                    <p>MongoDB</p>
-                </div>
-                
-                <div className="card">
-                    {/* Prisma */}
-                    <p>Prisma</p>
-                </div>
+                <Chip label="Sass" />
+                <Chip label="Material UI" />
+                <Chip label="Python" />
+                <Chip label="Figma" />
+                <Chip label="TypeScript" />
 
-                <div className="card">
-                    {/* Sass */}
-                    <p>Sass</p>
-                </div>
+            </Card>
 
-                <div className="card">
-                    {/* Python */}
-                    <p>Python</p>
-                </div>
-                
-                <div className="card">
-                    {/* Figma */}
-                    <p>Figma</p>
-                </div>
-
-            </section>
-
-            <section>
+            <Card sx={technologyCard}>
                 <h2>And here are some things I'm working on learning:</h2>
 
-                <div className="card">
-                    {/* TypeScript */}
-                    <p>TypeScript</p>
-                </div>
-
-                <div className="card">
-                    {/* C# / ASP.NET */}
-                    <p>C# / ASP.NET</p>
-                </div>
-
-                <div className="card">
-                    {/* Tailwind */}
-                    <p>Tailwind CSS</p>
-                </div>
+                <Chip label="Prisma" />
+                <Chip label="C# / ASP.NET" />
+                <Chip label="Next.js" />
                 
-            </section>
+            </Card>
 
             <a href="/">Home</a>
         </div>
