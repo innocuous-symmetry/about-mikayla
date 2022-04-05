@@ -1,5 +1,5 @@
 import '../App.scss';
-import { useEffect, useState, useRef, useMemo } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 // MUI components
 
@@ -70,6 +70,22 @@ export default function Welcome() {
     }, [gallery]);
 
     // gallery page change logic
+
+    /**
+     * 
+     * TO DO: port these functions to external utils
+     * these will need to take parameters: array as state, callback function to set state
+     * @param1 = array (stateful object)
+     * @param2 = array of React components to map through
+     * @param3 = callback function to set state
+     * 
+     * In below:
+     * @param1 = gallery
+     * @param2 = galleryButtons
+     * @param3 = setGallery
+     * 
+     */
+    
     const handleDecrement = () => {
         let newState = [];
         for (let each of gallery) {
