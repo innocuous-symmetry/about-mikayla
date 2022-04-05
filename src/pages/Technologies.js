@@ -1,13 +1,17 @@
+import '../App.scss';
+
 import Card from '@mui/material/Card';
 import Chip from '@mui/material/Chip';
+import { Drawer } from '@mui/material';
 
-import { TechnologiesPage } from '../styles/Style';
+import { TechnologiesPage, DocumentStyle } from '../styles/Style';
 
 const { technologyCard } = TechnologiesPage;
+const { htmlTheme } = DocumentStyle;
 
 export default function Technologies() {
     return (
-        <div>
+        <div style={htmlTheme}>
             <Card sx={technologyCard}>
                 <h1>What technologies do I use?</h1>
             </Card>
@@ -15,13 +19,23 @@ export default function Technologies() {
             <Card sx={technologyCard}>
                 <h2>These are my most often-used technologies:</h2>
 
-                <Chip label="React" />
-                <Chip label="Redux" />
-                <Chip label="Express" />
-                <Chip label="PostgreSQL" />
-                <Chip label="Supabase" />
-                <Chip label="MongoDB" />
+                <div className="tech-scrollbar">
+                    <Chip label="React" className="tech-bar-item"/>
+                    <Chip label="Redux" className="tech-bar-item"/>
+                    <Chip label="Express" className="tech-bar-item"/>
+                    <Chip label="PostgreSQL" className="tech-bar-item"/>
+                    <Chip label="Supabase" className="tech-bar-item"/>
+                    <Chip label="MongoDB" className="tech-bar-item"/>
+                </div>
 
+                <div className="tech-scrollbar backup-bar">
+                <Chip label="React" className="tech-bar-item"/>
+                    <Chip label="Redux" className="tech-bar-item"/>
+                    <Chip label="Express" className="tech-bar-item"/>
+                    <Chip label="PostgreSQL" className="tech-bar-item"/>
+                    <Chip label="Supabase" className="tech-bar-item"/>
+                    <Chip label="MongoDB" className="tech-bar-item"/>
+                </div>
             </Card>
 
             <Card sx={technologyCard}>

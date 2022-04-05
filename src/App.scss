@@ -46,7 +46,52 @@ header {
   
 }
 
-// .welcome-page {
-//   // background-image: url('./media/max-harlynking-_QcLpud-gD0-unsplash.jpg');
-//   background: url('./media/max-harlynking-_QcLpud-gD0-unsplash.jpg');
-// }
+.tech-scrollbar {
+  height: 5rem;
+  width: 60rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 0;
+  overflow-x: hidden;
+  animation: 20s linear tech-scroll infinite;
+  .tech-bar-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 0;
+    margin: 0.3rem;
+    padding: 1rem;
+    background-color: $purple200;
+    height: 5rem;
+    width: 20rem;
+  }
+}
+
+.backup-bar {
+  bottom: 5rem;
+  animation: 20s linear 10s tech-scroll infinite, 10s hide-until-start;
+}
+
+@keyframes hide-until-start {
+  from {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes tech-scroll {
+  from {
+    left: -60rem;
+  }
+  100% {
+    left: 60rem;
+  }
+}

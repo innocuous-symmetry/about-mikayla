@@ -3,6 +3,9 @@ import { indigo, blue, pink, green, deepPurple, purple } from '@mui/material/col
 export const DocumentStyle = {
     htmlTheme: {
         backgroundColor: purple[100],
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
         height: '100vh',
     },
     linkStyle: {
@@ -111,6 +114,9 @@ export const ProjectsPage = {
 
 export const TechnologiesPage = {
     technologyCard: {
-        backgroundColor: indigo[50]
+        backgroundColor: indigo[50],
+        width: '30vw',
+        margin: '2rem',
+        padding: '2rem',
     }
 }
