@@ -3,6 +3,7 @@ import Welcome from './pages/Welcome';
 import Projects from './pages/Projects';
 import Technologies from './pages/Technologies';
 import Links from './pages/Links';
+import CreativeWorks from './pages/CreativeWorks';
 import InProgress from './pages/InProgress';
 import './App.scss';
 
@@ -10,7 +11,7 @@ function App() {
   return (
     <div className="App">
       
-      <header>
+      <header className="app-navbar">
         <h2 className="my-name">Mikayla Dobson</h2>
         <h2>Web Design Contractor</h2>
       </header>
@@ -23,6 +24,7 @@ function App() {
               <Route path='/in-progress' element={<InProgress />} />
               <Route path='/technologies' element={<Technologies />} />
               <Route path='/links' element={<Links />} />
+              <Route path='/creative-works' element={<CreativeWorks />} />
             </Routes>
         </BrowserRouter>
       </main>

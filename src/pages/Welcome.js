@@ -13,8 +13,13 @@ import profile from '../media/profile.jpeg';
 
 import { DocumentStyle, WelcomePage } from '../styles/Style';
 
-const { pageTheme, galleryTheme, galleryRow, galleryPages, galleryPage, welcomeFooter } = WelcomePage;
-const { buttonStyle, galleryArrowStyle, galleryCards } = DocumentStyle;
+const {
+    pageTheme, galleryTheme, galleryRow,
+    galleryPages, galleryPage, welcomeFooter,
+    mainHeaderCard
+} = WelcomePage;
+
+const { buttonStyle, galleryArrowStyle, galleryCards, dividerStyle } = DocumentStyle;
 
 // Web page logic
 
@@ -22,6 +27,7 @@ export default function Welcome() {
     const [gallery, setGallery] = useState([0,1]);
     const [rendered, setRendered] = useState();
 
+    // identifiers
     const cardOne = useRef();
     const cardTwo = useRef();
     const cardThree = useRef();
@@ -45,22 +51,25 @@ export default function Welcome() {
         <Button ref={buttonFive} variant="contained" href="/creative-works" sx={buttonStyle}>Where can I listen to some of your music?</Button>
     ];
 
-    // handle gallery debug
+    // change active page indicator beneath gallery
     useEffect(() => {
         setRendered([
             galleryButtons[gallery[0]], galleryButtons[gallery[1]]
         ]);
 
         for (let each of allCardRefs) {
+            // inactive style
             each.current.style.backgroundColor = '#ede7f6';
         }
 
         for (let each of gallery) {
-            allCardRefs[each].current.style.backgroundColor = "#283593";
+            // active style
+            allCardRefs[each].current.style.backgroundColor = "#673ab7";
         }
 
     }, [gallery]);
 
+    // gallery page change logic
     const handleDecrement = () => {
         let newState = [];
         for (let each of gallery) {
@@ -82,19 +91,19 @@ export default function Welcome() {
         setGallery(newState);
     }
 
+    // render
     return (
-        <div style={pageTheme}>
-            <div className="landing">
+        <div className="welcome-page" style={pageTheme}>
+            <Card sx={mainHeaderCard} elevation={5}>
                 <Avatar alt="Mikayla Dobson" src={profile} sx={{width: 110, height: 110}} />
                 <h3>Hi, my name is Mikayla! I'm a junior-level full stack web developer.</h3>
                 <p>I excel in building well-structured and maintainable web applications, managing algorithmic complexity,
                     and adapting my workflow to fit the needs of any environment I should find myself in.
                 </p>
-            </div>
+                <h4 className="do-stuff">Thanks for visiting! Feel free to peruse below:</h4>
+            </Card>
 
-            <h3 className="do-stuff">Thanks for visiting! Feel free to peruse below:</h3>
-
-            <Divider orientation="horizontal" sx={{width: '90%', color: '#000000', borderWidth: '2px'}} />
+            <Divider orientation="horizontal" sx={dividerStyle} />
             
             <div style={galleryTheme} className="gallery">
                 <div style={galleryRow}>
@@ -111,7 +120,7 @@ export default function Welcome() {
                 </div>
             </div>
 
-            <Divider orientation="horizontal" sx={{width: '90%', color: '#000000', borderWidth: '2px'}} />
+            <Divider orientation="horizontal" sx={dividerStyle} />
 
             <footer sx={welcomeFooter}>
                 <p>&copy; Mikayla Dobson 2022</p>

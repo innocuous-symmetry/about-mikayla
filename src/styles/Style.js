@@ -3,6 +3,7 @@ import { indigo, blue, pink, green, deepPurple, purple } from '@mui/material/col
 export const DocumentStyle = {
     htmlTheme: {
         backgroundColor: purple[100],
+        height: '100vh',
     },
     linkStyle: {
         color: deepPurple[300],
@@ -25,9 +26,9 @@ export const DocumentStyle = {
         display: 'flex',
         justifyContent: 'center',
         color: deepPurple[50],
-        backgroundColor: deepPurple[500],
+        backgroundColor: deepPurple[400],
         '&:hover': {
-            backgroundColor: indigo[800],
+            backgroundColor: deepPurple[500],
         }
     },
     galleryCards: {
@@ -36,7 +37,7 @@ export const DocumentStyle = {
         margin: '0.8rem'
     },
     dividerStyle: {
-        width: '90%',
+        width: '80%',
         color: '#000000',
         borderWidth: '2px'
     }
@@ -51,12 +52,25 @@ export const WelcomePage = {
         alignItems: 'center',
         overflowX: 'hidden'
     },
+    mainHeaderCard: {
+      display: 'flex',
+      margin: '2rem',
+      width: '35vw',
+      padding: '1rem',
+      flexDirection: 'column',
+      backgroundColor: pink[50],
+      alignItems: 'center',
+      fontSize: '1.2rem',
+    },
     galleryTheme: {
         display: 'flex',
         flexDirection: 'column',
-        width: '95vw',
+        backgroundColor: indigo[800],
+        border: '1px solid purple',
+        width: '70vw',
         height: '18rem',
         padding: '3rem',
+        margin: '2rem',
     },
     galleryRow: {
         display: 'flex',

@@ -9,7 +9,7 @@ const { headerCard, projectCards, cardDimensions } = ProjectsPage;
 
 export default function Projects() {
     return (
-        <Grid sx={htmlTheme}>
+        <div style={htmlTheme}>
             <Card sx={[headerCard, cardDimensions]}>What I Do:</Card>
 
             <Card sx={[projectCards, cardDimensions]}>
@@ -19,12 +19,19 @@ export default function Projects() {
             </Card>
 
             <Card sx={[projectCards, cardDimensions]}>
+                <h2>Creative minded problem solver</h2>
+                <p>My rich creative background as a musician, composer, producer, and artistic collaborator provide me with a unique frame of reference for
+                    solving technical problems and adapting to dynamic environments.</p>
+                <a href="/">See some of my creative works for examples of my aptitudes, as well as some thoughts on how they apply to work as a developer!</a>
+            </Card>
+
+            <Card sx={[projectCards, cardDimensions]}>
                 <h2>Database Operations and Management</h2>
                 <p>My projects have featured both relational and non-relational databases, in particular PostgreSQL and MongoDB.</p>
                 <p>I also have experience with various technologies for connecting these to front-end applications, including Prisma and Supabase.</p>
             </Card>
         
             <a href="/">Go home</a>
-        </Grid>
+        </div>
     )
 }
