@@ -38,14 +38,6 @@ header {
   }
 }
 
-.gallery-animation-right {
-  animation-name: gallery-slide-right;
-}
-
-@keyframes gallery-animation-right {
-  
-}
-
 .tech-scrollbar {
   height: 5rem;
   width: 60rem;
@@ -55,13 +47,15 @@ header {
   position: relative;
   left: 0;
   overflow-x: hidden;
-  animation: 20s linear tech-scroll infinite;
+  animation: 30s linear tech-scroll infinite;
   .tech-bar-item {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     left: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
     margin: 0.3rem;
     padding: 1rem;
     background-color: $purple200;
@@ -72,7 +66,20 @@ header {
 
 .backup-bar {
   bottom: 5rem;
-  animation: 20s linear 10s tech-scroll infinite, 10s hide-until-start;
+  animation: 30s linear 15s tech-scroll infinite, 15s hide-until-start;
+}
+
+.from-right {
+  animation: 30s linear from-right infinite;
+}
+.backup-from-right {
+  bottom: 5rem;
+  animation: 30s linear 15s from-right infinite, 15s hide-until-start;
+}
+
+.variant-2 {
+  background-color: #62286d !important;
+  color: white !important;
 }
 
 @keyframes hide-until-start {
@@ -93,5 +100,14 @@ header {
   }
   100% {
     left: 60rem;
+  }
+}
+
+@keyframes from-right {
+  from {
+    left: 60rem;
+  }
+  100% {
+    left: -60rem;
   }
 }

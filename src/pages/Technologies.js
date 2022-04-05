@@ -41,20 +41,39 @@ export default function Technologies() {
             <Card sx={technologyCard}>
                 <h2>Here are some I use relatively often:</h2>
 
-                <Chip label="Sass" />
-                <Chip label="Material UI" />
-                <Chip label="Python" />
-                <Chip label="Figma" />
-                <Chip label="TypeScript" />
+                <div className="tech-scrollbar from-right">
+                    <Chip className="tech-bar-item variant-2" label="Sass" />
+                    <Chip className="tech-bar-item variant-2" label="Material UI" />
+                    <Chip className="tech-bar-item variant-2" label="Python" />
+                    <Chip className="tech-bar-item variant-2" label="Figma" />
+                    <Chip className="tech-bar-item variant-2" label="TypeScript" />
+                </div>
+
+                <div className="tech-scrollbar backup-from-right">
+                    <Chip className="tech-bar-item variant-2" label="Sass" />
+                    <Chip className="tech-bar-item variant-2" label="Material UI" />
+                    <Chip className="tech-bar-item variant-2" label="Python" />
+                    <Chip className="tech-bar-item variant-2" label="TypeScript" />
+                </div>
 
             </Card>
 
             <Card sx={technologyCard}>
                 <h2>And here are some things I'm working on learning:</h2>
 
-                <Chip label="Prisma" />
-                <Chip label="C# / ASP.NET" />
-                <Chip label="Next.js" />
+                <div className="tech-scrollbar">
+                    <Chip className="tech-bar-item variant-3" label="Prisma" />
+                    <Chip className="tech-bar-item variant-3" label="Figma" />
+                    <Chip className="tech-bar-item variant-3" label="C# / ASP.NET" />
+                    <Chip className="tech-bar-item variant-3" label="Next.js" />
+                </div>
+
+                <div className="tech-scrollbar backup-bar">
+                    <Chip className="tech-bar-item variant-3" label="Prisma" />
+                    <Chip className="tech-bar-item variant-3" label="Figma" />
+                    <Chip className="tech-bar-item variant-3" label="C# / ASP.NET" />
+                    <Chip className="tech-bar-item variant-3" label="Next.js" />
+                </div>
                 
             </Card>
 

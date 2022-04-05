@@ -116,6 +116,7 @@ export const TechnologiesPage = {
     technologyCard: {
         backgroundColor: indigo[50],
         width: '30vw',
+        maxHeight: '10rem',
         margin: '2rem',
         padding: '2rem',
     }
