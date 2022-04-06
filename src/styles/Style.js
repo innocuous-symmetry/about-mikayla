@@ -144,10 +144,9 @@ export const AboutMePage = {
 export const TechnologiesPage = {
     technologyCard: {
         backgroundColor: indigo[50],
-        width: '30vw',
-        maxHeight: '10rem',
+        width: '40vw',
         margin: '2rem',
-        padding: '2rem',
+        borderRadius: '15px',
     }
 }
 

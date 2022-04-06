@@ -11,13 +11,12 @@ const { htmlTheme } = DocumentStyle;
 export default function Technologies() {
     return (
         <div className="technologies-page" style={htmlTheme}>
-            <Card sx={technologyCard}>
+            <Card sx={{padding: '2rem'}}>
                 <h1>What technologies do I use?</h1>
             </Card>
 
+            <h2>These are my most often-used technologies:</h2>
             <Card sx={technologyCard}>
-                <h2>These are my most often-used technologies:</h2>
-
                 <div className="tech-scrollbar">
                     <Chip label="React" className="tech-bar-item"/>
                     <Chip label="Redux" className="tech-bar-item"/>
@@ -37,8 +36,8 @@ export default function Technologies() {
                 </div>
             </Card>
 
+            <h2>Here are some I use relatively often:</h2>
             <Card sx={technologyCard}>
-                <h2>Here are some I use relatively often:</h2>
 
                 <div className="tech-scrollbar from-right">
                     <Chip className="tech-bar-item variant-2" label="Sass" />
@@ -57,8 +56,8 @@ export default function Technologies() {
 
             </Card>
 
+            <h2>And here are some things I'm working on learning:</h2>
             <Card sx={technologyCard}>
-                <h2>And here are some things I'm working on learning:</h2>
 
                 <div className="tech-scrollbar">
                     <Chip className="tech-bar-item variant-3" label="Prisma" />
@@ -75,8 +74,6 @@ export default function Technologies() {
                 </div>
                 
             </Card>
-
-            <a href="/">Home</a>
         </div>
     )
 }
