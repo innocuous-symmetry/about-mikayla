@@ -98,17 +98,37 @@ export const WelcomePage = {
     }
 }
 
-export const ProjectsPage = {
+export const AboutMePage = {
     headerCard: {
-        backgroundColor: green['A700']
+        backgroundColor: purple[700],
+        color: indigo[50],
+        fontSize: '1.5rem',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '12rem',
+        width: '12rem',
+        marginTop: '2rem',
+        marginBottom: '3rem',
     },
     projectCards: {
         backgroundColor: indigo[800],
-        color: indigo[100],
-    },
-    cardDimensions: {
+        color: indigo[50],
         width: '300px',
         height: '300px',
+        padding: '2rem',
+    },
+    cardDimensions: {
+        display: 'flex',
+        flexDirection: 'column',
+        borderRadius: '12px',
+        textAlign: 'center',
+    },
+    aboutGallery: {
+        display: 'flex',
+        height: '70vh',
+        width: '80vw',
+        justifyContent: 'space-around',
+        margin: '2rem',
     }
 }
 

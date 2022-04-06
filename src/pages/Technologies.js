@@ -11,7 +11,7 @@ const { htmlTheme } = DocumentStyle;
 
 export default function Technologies() {
     return (
-        <div style={htmlTheme}>
+        <div className="technologies-page" style={htmlTheme}>
             <Card sx={technologyCard}>
                 <h1>What technologies do I use?</h1>
             </Card>
