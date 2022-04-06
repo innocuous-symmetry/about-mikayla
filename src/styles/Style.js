@@ -43,6 +43,15 @@ export const DocumentStyle = {
         width: '80%',
         color: '#000000',
         borderWidth: '2px'
+    },
+
+    stockGallery: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '85vw',
+        height: '45vh',
     }
 }
 
@@ -140,4 +149,13 @@ export const TechnologiesPage = {
         margin: '2rem',
         padding: '2rem',
     }
+}
+
+export const ProjectsPage = {
+    projectsButton: {
+        backgroundColor: purple[500],
+        color: indigo[50],
+        height: '45%',
+        width: '5%',
+    },
 }

@@ -37,18 +37,6 @@ $purple200: #ce93d8;
   }
 }
 
-// .landing {
-//   padding-top: 1.5rem;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   width: 75vw;
-//   h3 {
-//     position: relative;
-//     top: 0.8rem;
-//   }
-// }
-
 .technologies-page {
   .tech-scrollbar {
     height: 5rem;
@@ -138,5 +126,46 @@ $purple200: #ce93d8;
   }
   .card-title {
     text-transform: uppercase;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @mixin staggered-entry($interval) {
+    animation: 0.5s fade-in #{$interval}s linear forwards;
+  }
+  
+  .fade {
+    opacity: 0;
+    transition: 0.5s transform ease;
+    &:hover {
+      transform: scale(115%) translateY(-1.5rem);
+      transition: 0.5s transform ease;
+    }
+
+    &.one {
+      @include staggered-entry(0);
+    }
+    &.two {
+      @include staggered-entry(0.6);
+    }
+    &.three {
+      @include staggered-entry(1.2);
+    }
+  }
+}
+
+.projects-page {
+  .MuiPaper-root {
+    padding: 1rem;
+    width: 75%;
+    height: 15rem;
+    margin-top: 3rem;
   }
 }

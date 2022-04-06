@@ -1,20 +1,26 @@
+import Card from '@mui/material/Card';
+
+import { DocumentStyle } from '../styles/Style';
+
+const { htmlTheme, stockGallery } = DocumentStyle;
+
 export default function Links() {
     return (
-        <div className='Links page'>
+        <div style={htmlTheme}>
             <h1>Find more about my work at the links below!</h1>
 
-            <div className="gallery">
-                <div className="card">
+            <div style={stockGallery}>
+                <Card>
                     {/* An image here for a Github logo? */}
                     <a href="https://github.com/innocuous-symmetry">My Github</a>
-                </div>
-                <div className="card">
+                </Card>
+                <Card>
                     {/* LinkedIn image? */}
                     <a href="https://www.linkedin.com/in/mikayla-dobson/">My LinkedIn Profile</a>
-                </div>
-                <div className="card">
+                </Card>
+                <Card>
                     <a href="https://codepen.io/innocuous-symmetry">My CodePen</a>
-                </div>
+                </Card>
             </div>
         </div>
     )

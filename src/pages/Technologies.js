@@ -2,7 +2,6 @@ import '../App.scss';
 
 import Card from '@mui/material/Card';
 import Chip from '@mui/material/Chip';
-import { Drawer } from '@mui/material';
 
 import { TechnologiesPage, DocumentStyle } from '../styles/Style';
 
