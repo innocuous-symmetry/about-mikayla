@@ -1,11 +1,10 @@
 import '../App.scss';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { DocumentStyle, ProjectsPage } from '../styles/Style';
 
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
-import Divider from '@mui/material/Divider';
 
 const { htmlTheme, stockGallery } = DocumentStyle;
 const { projectsButton } = ProjectsPage;
