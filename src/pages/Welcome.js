@@ -15,7 +15,7 @@ import { DocumentStyle, WelcomePage } from '../styles/Style';
 
 const {
     pageTheme, galleryTheme, galleryRow,
-    galleryPages, galleryPage, welcomeFooter,
+    galleryPages, welcomeFooter,
     mainHeaderCard
 } = WelcomePage;
 
@@ -40,19 +40,19 @@ export default function Welcome() {
     const buttonFour = useRef();
     const buttonFive = useRef();
 
-    const allCardRefs = [cardOne, cardTwo, cardThree, cardFour, cardFive];
-    const allButtonRefs = [buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive];
-
-    const galleryButtons = [
-        <Button ref={buttonOne} variant="contained" href="/about-me" sx={buttonStyle}>What kinds of things do I do?</Button>,
-        <Button ref={buttonTwo} variant="contained" href="/technologies" sx={buttonStyle}>What do I use to do it?</Button>,
-        <Button ref={buttonThree} variant="contained" href="/projects" sx={buttonStyle}>What projects am I working on now?</Button>,
-        <Button ref={buttonFour} variant="contained" href="/links" sx={buttonStyle}>Where can you find more about me and my work?</Button>,
-        <Button ref={buttonFive} variant="contained" href="/creative-works" sx={buttonStyle}>Where can I listen to some of your music?</Button>
-    ];
-
+    
     // change active page indicator beneath gallery
     useEffect(() => {
+
+        const allCardRefs = [cardOne, cardTwo, cardThree, cardFour, cardFive];
+        const galleryButtons = [
+            <Button ref={buttonOne} variant="contained" href="/about-me" sx={buttonStyle}>What kinds of things do I do?</Button>,
+            <Button ref={buttonTwo} variant="contained" href="/technologies" sx={buttonStyle}>What do I use to do it?</Button>,
+            <Button ref={buttonThree} variant="contained" href="/projects" sx={buttonStyle}>What projects am I working on now?</Button>,
+            <Button ref={buttonFour} variant="contained" href="/links" sx={buttonStyle}>Where can you find more about me and my work?</Button>,
+            <Button ref={buttonFive} variant="contained" href="/creative-works" sx={buttonStyle}>Where can I listen to some of your music?</Button>
+        ];
+
         setRendered([
             galleryButtons[gallery[0]], galleryButtons[gallery[1]]
         ]);
@@ -67,7 +67,7 @@ export default function Welcome() {
             allCardRefs[each].current.style.backgroundColor = "#673ab7";
         }
 
-    }, [gallery]);
+    }, [gallery, setRendered]);
 
     // gallery page change logic
 
@@ -91,7 +91,7 @@ export default function Welcome() {
         for (let each of gallery) {
             let newNum = each - 1;
             if (newNum === -1) {
-                newNum = galleryButtons.length - 1;
+                newNum = 4;
             }
             newState.push(newNum);
         }
@@ -101,7 +101,7 @@ export default function Welcome() {
     const handleIncrement = () => {
         let newState = [];
         for (let each of gallery) {
-            let newNum = (each + 1) % galleryButtons.length;
+            let newNum = (each + 1) % 5;
             newState.push(newNum);
         }
         setGallery(newState);
