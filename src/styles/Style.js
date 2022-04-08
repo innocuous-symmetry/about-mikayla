@@ -1,4 +1,4 @@
-import { indigo, blue, pink, green, deepPurple, purple } from '@mui/material/colors';
+import { indigo, pink, deepPurple, purple } from '@mui/material/colors';
 
 export const DocumentStyle = {
     htmlTheme: {
