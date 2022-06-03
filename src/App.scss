@@ -115,6 +115,11 @@ $purple200: #ce93d8;
 }
 
 .about-me-page {
+  h1 {
+    color: darkblue;
+    font-weight: 800;
+    font-size: 4rem;
+  }
   a {
     color: white;
     border-radius: 12px;
@@ -145,10 +150,6 @@ $purple200: #ce93d8;
   .fade {
     opacity: 0;
     transition: 0.5s transform ease;
-    &:hover {
-      transform: scale(115%) translateY(-1.5rem);
-      transition: 0.5s transform ease;
-    }
 
     &.one {
       @include staggered-entry(0);

@@ -26,6 +26,7 @@ function App() {
       <header className="app-navbar">
         <a href="/" className="my-name">Mikayla Dobson</a>
         <h2>Web Design Contractor</h2>
+        <div>Drawer</div>
       </header>
       
       <main>
