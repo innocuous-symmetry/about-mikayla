@@ -1,140 +1,33 @@
 import '../App.scss';
 import { useEffect, useState, useRef } from 'react';
-
-// MUI components
-
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import Divider from '@mui/material/Divider';
+import { Avatar, Button, Card, Divider } from '@mui/material';
 import profile from '../media/profile.jpeg';
 
 // SX style object imports
 
 import { DocumentStyle, WelcomePage } from '../styles/Style';
 
-const {
-    pageTheme, galleryTheme, galleryRow,
-    galleryPages, welcomeFooter,
-    mainHeaderCard
-} = WelcomePage;
-
+const { pageTheme, galleryTheme, galleryRow, galleryPages, welcomeFooter, mainHeaderCard } = WelcomePage;
 const { buttonStyle, galleryArrowStyle, galleryCards, dividerStyle } = DocumentStyle;
 
 // Web page logic
 
 export default function Welcome() {
-    const [gallery, setGallery] = useState([0,1]);
-    const [rendered, setRendered] = useState();
-
-    // identifiers
-    const cardOne = useRef();
-    const cardTwo = useRef();
-    const cardThree = useRef();
-    const cardFour = useRef();
-    const cardFive = useRef();
-
-    const buttonOne = useRef();
-    const buttonTwo = useRef();
-    const buttonThree = useRef();
-    const buttonFour = useRef();
-    const buttonFive = useRef();
-
-    
-    // change active page indicator beneath gallery
-    useEffect(() => {
-
-        const allCardRefs = [cardOne, cardTwo, cardThree, cardFour, cardFive];
-        const galleryButtons = [
-            <Button ref={buttonOne} variant="contained" href="/about-me" sx={buttonStyle}>What kinds of things do I do?</Button>,
-            <Button ref={buttonTwo} variant="contained" href="/technologies" sx={buttonStyle}>What do I use to do it?</Button>,
-            <Button ref={buttonThree} variant="contained" href="/projects" sx={buttonStyle}>What projects am I working on now?</Button>,
-            <Button ref={buttonFour} variant="contained" href="/links" sx={buttonStyle}>Where can you find more about me and my work?</Button>,
-            <Button ref={buttonFive} variant="contained" href="/creative-works" sx={buttonStyle}>Where can I listen to some of your music?</Button>
-        ];
-
-        setRendered([
-            galleryButtons[gallery[0]], galleryButtons[gallery[1]]
-        ]);
-
-        for (let each of allCardRefs) {
-            // inactive style
-            each.current.style.backgroundColor = '#ede7f6';
-        }
-
-        for (let each of gallery) {
-            // active style
-            allCardRefs[each].current.style.backgroundColor = "#673ab7";
-        }
-
-    }, [gallery, setRendered]);
-
-    // gallery page change logic
-
-    /**
-     * 
-     * TO DO: port these functions to external utils
-     * these will need to take parameters: array as state, callback function to set state
-     * @param1 = array (stateful object)
-     * @param2 = array of React components to map through
-     * @param3 = callback function to set state
-     * 
-     * In below:
-     * @param1 = gallery
-     * @param2 = galleryButtons
-     * @param3 = setGallery
-     * 
-     */
-    
-    const handleDecrement = () => {
-        let newState = [];
-        for (let each of gallery) {
-            let newNum = each - 1;
-            if (newNum === -1) {
-                newNum = 4;
-            }
-            newState.push(newNum);
-        }
-        setGallery(newState);
-    }
-
-    const handleIncrement = () => {
-        let newState = [];
-        for (let each of gallery) {
-            let newNum = (each + 1) % 5;
-            newState.push(newNum);
-        }
-        setGallery(newState);
-    }
-
-    // render
     return (
         <div className="welcome-page" style={pageTheme}>
-            <Card sx={mainHeaderCard} elevation={5}>
+            <Card id="header-card" sx={mainHeaderCard} elevation={5}>
                 <Avatar alt="Mikayla Dobson" src={profile} sx={{width: 110, height: 110}} />
                 <h3>Hi, my name is Mikayla! I'm a junior-level full stack web developer.</h3>
-                <p>I excel in building well-structured and maintainable web applications, managing algorithmic complexity,
-                    and adapting my workflow to fit the needs of any environment I should find myself in.
-                </p>
                 <h4 className="do-stuff">Thanks for visiting! Feel free to peruse below:</h4>
             </Card>
 
             <Divider orientation="horizontal" sx={dividerStyle} />
-            
-            <div style={galleryTheme} className="gallery">
-                <div style={galleryRow}>
-                    <Button sx={galleryArrowStyle} onClick={handleDecrement}>{'<'}</Button>
-                    {rendered}
-                    <Button sx={galleryArrowStyle} onClick={handleIncrement}>{'>'}</Button>
-                </div>
-                <div style={galleryPages}>
-                    <Card ref={cardOne} sx={galleryCards} />
-                    <Card ref={cardTwo} sx={galleryCards} />
-                    <Card ref={cardThree} sx={galleryCards} />
-                    <Card ref={cardFour} sx={galleryCards} />
-                    <Card ref={cardFive} sx={galleryCards} />
-                </div>
-            </div>
+
+            <Card id="welcome-info">
+                <p>
+                I am a junior-level full stack web developer based in Nashville, Tennessee. I build responsive, well-designed web applications with emphasis on concise solutions to problems, self-documenting code, and elegance of design. Some of my most frequently used technologies include React, Redux, Node.js, Express, TypeScript, Vite, PostgreSQL, MongoDB, and Sass, among others.
+                </p>
+            </Card>
 
             <Divider orientation="horizontal" sx={dividerStyle} />
 

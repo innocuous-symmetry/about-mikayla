@@ -73,6 +73,7 @@ export const WelcomePage = {
       backgroundColor: pink[50],
       alignItems: 'center',
       fontSize: '1.2rem',
+      borderRadius: '12px'
     },
     galleryTheme: {
         display: 'flex',

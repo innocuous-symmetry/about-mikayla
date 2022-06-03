@@ -2,6 +2,8 @@ import { Button, Drawer, List, ListItem } from "@mui/material"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
+import MenuIcon from '@material-ui/icons/Menu';
+
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [selected, setSelected] = useState(null);
@@ -34,19 +36,18 @@ export default function Navbar() {
         }
     }, [selected, navigate]);
 
-    // <Route path='/' element={<Welcome />} />
-    // <Route path='/about-me' element={<AboutMe />} />
-    // <Route path='/projects' element={<Projects />} />
-    // <Route path='/technologies' element={<Technologies />} />
-    // <Route path='/links' element={<Links />} />
-    // <Route path='/creative-works' element={<CreativeWorks />} />
-
     return (
         <header className="app-navbar">
-            <a href="/" className="my-name">Mikayla Dobson</a>
-            <h2>Web Design Contractor</h2>
+            <div className="navbar-left">
+                <a href="/" className="my-name">Mikayla Dobson</a>
+                <h2>Web Design Contractor</h2>
+            </div>
 
-            <Button onClick={() => setOpen(!open)}>Nav</Button>
+            <div className="navbar-right">
+                <Button onClick={() => setOpen(!open)}>
+                    <MenuIcon />
+                </Button>
+            </div>
 
             <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
                 <List component="nav">

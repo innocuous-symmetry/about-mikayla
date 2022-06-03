@@ -6,12 +6,29 @@ $purple200: #ce93d8;
 
 .App {
   text-align: center;
-  header {
+
+  .app-navbar {
     background-color: $purple200;
     display: flex;
-    align-items: center;
     border-bottom: 1px solid black;
     font-family: 'Open Sans', sans-serif;
+
+    .navbar-left {
+      display: flex;
+      flex-direction: row;
+      width: 50%;
+      justify-content: flex-start;
+      align-items: baseline;
+    }
+
+    .navbar-right {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      padding-right: 1rem;
+      width: 50%;
+    }
+
     a {
       transition: color 150ms ease;
       color: black;
@@ -34,6 +51,35 @@ $purple200: #ce93d8;
       position: relative;
       padding-left: 1rem;
     }
+  }
+}
+
+.welcome-page {
+  @keyframes sideToSide {
+    from {
+      transform: rotate(-1deg);
+    }
+
+    50% {
+      transform: rotate(1deg);
+    }
+
+    to {
+      transform: rotate(-1deg);
+    }
+  }
+
+  #header-card {
+    height: 18rem;
+    animation: sideToSide 10s infinite;
+  }
+  #welcome-info {
+    margin: 2rem 0;
+    width: 75%;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.6rem;
+    animation: sideToSide 15s infinite;
   }
 }
 
