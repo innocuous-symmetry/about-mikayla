@@ -8,6 +8,7 @@ import Projects from './pages/Projects';
 import Technologies from './pages/Technologies';
 import Links from './pages/Links';
 import CreativeWorks from './pages/CreativeWorks';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
@@ -23,13 +24,9 @@ function App() {
 
       */}
       
-      <header className="app-navbar">
-        <a href="/" className="my-name">Mikayla Dobson</a>
-        <h2>Web Design Contractor</h2>
-      </header>
-      
-      <main>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Navbar />
+          <main>
             <Routes>
               <Route path='/' element={<Welcome />} />
               <Route path='/about-me' element={<AboutMe />} />
@@ -38,8 +35,8 @@ function App() {
               <Route path='/links' element={<Links />} />
               <Route path='/creative-works' element={<CreativeWorks />} />
             </Routes>
-        </BrowserRouter>
-      </main>
+          </main>
+      </BrowserRouter>
 
     </div>
   );

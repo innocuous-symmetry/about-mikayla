@@ -1,101 +1,120 @@
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { DocumentStyle } from '../styles/Style';
+import { projectsArray } from '../components/ProjectsArray';
+import { Divider } from '@mui/material';
 import '../App.scss';
-import { useState } from 'react';
 
-import { DocumentStyle, ProjectsPage } from '../styles/Style';
+const { htmlTheme, dividerStyle } = DocumentStyle;
 
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-
-const { htmlTheme, stockGallery } = DocumentStyle;
-const { projectsButton } = ProjectsPage;
+const defaultFilter = {
+    language: '',
+    searchTerm: '',
+    inProgress: false
+}
 
 export default function Projects() {
-    const galleryArray = [
-        (
-            <Card>
-                <h1>Reddit, but it's all cats</h1>
-                <p>A read-only Reddit client -- this site fetches data from Reddit and displays a curated feed.</p>
-                <p>This was built on Reddit's JSON API, using React/Redux and CSS.</p>
-                <p>And yes, it's all cats.</p>
-                <a href="https://reddit-but-all-cats.netlify.app/" target="_blank" rel="noreferrer">View the deployed project!</a>
-            </Card>
-        ),
-        (
-            <Card>
-                <h1>Personal Timestamp Generator</h1>
-                <p>A small-scale timestamp/productivity management tool for individual use and logging of 
-                    time, including compartmentalization by task and some aggregate functions based on queries.
-                </p>
-                <p>Command-line interface built on Python with a SQLite Database.</p>
-                <a href="https://github.com/innocuous-symmetry/timestamp_project" target="_blank" rel="noreferrer">View the repo here!</a>
-            </Card>
-        ),
-        (
-            <Card>
-                <h1>Musical Counterpoint Bot</h1>
-                <p>A web-based program with functionality to evaluate sample solutions of problems in 
-                    species-based counterpoint, as detailed by Johann Fux in <em>Gradus ad Parnassum.</em></p>
-                <p>This project is intended to be used as a practical application of linked lists and 
-                    other compound data structures in JavaScript.</p>
-                <p>In progress. Using vanilla HTML/CSS/JS.</p>
-            </Card>
-        ),
-        (
-            <Card>
-                <h1>(untitled) Online Guess-the-Word Game</h1>
-                <p>As part of a mentorship program hosted by Metazu Studio</p>
-                <p>Implemented using MongoDB, React, and Node/Express, styled with Material UI/SCSS.</p>
-                <p>In progress, building in collaboration with others at Metazu Studio.</p>
-            </Card>
-        ),
-        (
-            <Card>
-                <h1>Splinter</h1>
-                <p>A clone of a popular card-based resource gathering game</p>
-                <p>Local multiplayer, with plans to build out online multiplayer and solo vs. CPU</p>
-                <p>In progress. Using React, Node/Express, and PostgreSQL.</p>
-            </Card>
-        ),
-        (
-            <Card>
-                <h1>Carenest</h1>
-                <p>Designed in collaboration with Faith Magras, Elvis Hernandez, and Daytreon Dean 
-                    as a submission for #HACKTN in March 2022.</p>
-                <p>Produced using React. View the repo <a target="_blank" rel="noreferrer" href="https://github.com/Team-Carenest/carenest">here!</a></p>
-            </Card>
-        ),
-        (
-            <Card>
-                <h1>And, last but not least, the site you see here!</h1>
-                <p>This site is built using React, Material UI, and SCSS, and is hosted on Github Pages.</p>
-            </Card>
-        ),
-    ]
+    const [results, setResults] = useState();
+    const [filter, setFilter] = useState(defaultFilter);
+    const [panelStyle, setPanelStyle] = useState('');
 
-    const [galleryIndex, setGalleryIndex] = useState(0);
+    const searchInput = useRef();
+    const languageFilter = useRef();
+    const projectPage = useRef();
 
-    const handleDecrement = () => {
-        setGalleryIndex((prev) => {
-            let newValue = prev - 1;
-            if (newValue === -1) {
-                newValue = galleryArray.length - 1;
+    useEffect(() => {
+        if (!filter) setResults(projectsArray.map(each => each.jsx));
+
+        if (filter) {
+            let result = projectsArray;
+            if (filter.searchTerm) {
+                let termLower = filter.searchTerm.toLowerCase();
+                result = result.filter(obj => obj.name.toLowerCase().includes(termLower));
             }
-            return newValue;
-        });
+            if (filter.language) {
+                let adjustedLang = ((filter.language === 'PostgreSQL' || filter.language === "Express") ? "PERN" : filter.language);
+                result = result.filter(obj => obj.languages.includes(adjustedLang));
+            }
+
+            if (filter.inProgress) result = result.filter(obj => !obj.inProgress);
+            
+            setResults(result.map(each => each.jsx));
+        }
+    }, [filter]);
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        setFilter({
+            ...filter,
+            language: e.target.value
+        })
     }
 
-    const handleIncrement = () => {
-        setGalleryIndex(prev => (prev + 1) % galleryArray.length);
+    const handleReset = () => {
+        setFilter(defaultFilter);
+        searchInput.current.value = '';
+        languageFilter.current.value = '';
     }
+
+    useEffect(() => {
+        const handleScroll = (e) => {
+            let position = window.scrollY;
+
+            if (position > 150) {
+                setPanelStyle("filter-anim-one");
+            } else {
+                setPanelStyle("");
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, []);
+
+    useEffect(() => {
+        console.log(panelStyle);
+    }, [panelStyle]);
 
     return (
         <div className="projects-page" style={htmlTheme}>
-            <h1>Here are some sample projects from my portfolio!</h1>
+            <h1>Check out these projects from my portfolio!</h1>
 
-            <div style={stockGallery}>
-                <Button style={projectsButton} onClick={handleDecrement}>{'<'}</Button>
-                {galleryArray[galleryIndex]}
-                <Button style={projectsButton} onClick={handleIncrement}>{'>'}</Button>
+            <section className={`filter-panel ${panelStyle}`}>
+                <h2>Filter by:</h2>
+                <div className="filter-controls">
+                    <input
+                        ref={searchInput} type="text"
+                        onChange={(e) => setFilter({...filter, searchTerm: e.target.value})}
+                        placeholder="Enter a search term">
+                    </input>
+                    <select ref={languageFilter} onChange={handleChange} name="language" id="language">
+                        <option value="">- Language -</option>
+                        <option value="Express">Express</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="MaterialUI">Material UI</option>
+                        <option value="MongoDB">MongoDB</option>
+                        <option value="PostgreSQL">PostgreSQL</option>
+                        <option value="Python">Python</option>
+                        <option value="React">React</option>
+                        <option value="Redux">Redux</option>
+                        <option value="REST_API">REST API</option>
+                        <option value="Sass">Sass</option>
+                        <option value="SQLite">SQLite</option>
+                        <option value="TypeScript">TypeScript</option>
+                    </select>
+                    <button onClick={() => setFilter({...filter, inProgress: !filter.inProgress})}>
+                            {filter.inProgress ? "Show" : "Hide"} in-progress
+                        </button>
+                    <button onClick={handleReset}>Reset</button>
+                </div>
+            </section>
+
+            <Divider orientation="horizontal" sx={dividerStyle} />
+
+            <div className="project-cards">
+                {results}
             </div>
         </div>
     )

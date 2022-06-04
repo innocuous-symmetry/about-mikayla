@@ -4,12 +4,12 @@ import { DocumentStyle, AboutMePage } from '../styles/Style';
 import Card from '@mui/material/Card';
 
 const { htmlTheme } = DocumentStyle;
-const { headerCard, projectCards, cardDimensions, aboutGallery } = AboutMePage;
+const { projectCards, cardDimensions, aboutGallery } = AboutMePage;
 
 export default function AboutMe() {
     return (
         <div style={htmlTheme} className="about-me-page">
-            <Card sx={[headerCard, cardDimensions]} className="card-title">What I Do:</Card>
+            <h1 className="what-i-do-header">What I Do:</h1>
 
             <div style={aboutGallery}>
                 <Card sx={[projectCards, cardDimensions]} className="fade one">

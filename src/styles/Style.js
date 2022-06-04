@@ -6,7 +6,8 @@ export const DocumentStyle = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        height: '100vh',
+        minHeight: '100vh',
+        height: '100%',
     },
     linkStyle: {
         color: deepPurple[300],
@@ -73,6 +74,7 @@ export const WelcomePage = {
       backgroundColor: pink[50],
       alignItems: 'center',
       fontSize: '1.2rem',
+      borderRadius: '12px'
     },
     galleryTheme: {
         display: 'flex',
