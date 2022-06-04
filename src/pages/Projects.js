@@ -157,56 +157,26 @@ export default function Projects() {
                 )
             }
         ]
-        
+
         if (!filter) {
             setResults(galleryArray.map(each => each.jsx));
-        } else {
-            let filteredRes = galleryArray;
-            
-            if (filter.language) {
-                for (let element of filteredRes) {
-                    if (filter.language === "Express" && element.languages.includes("PERN" || "MERN")) {
-                        continue;
-                    } else if (filter.language === "PostgreSQL" && element.languages.includes("PERN")) {
-                        continue;
-                    } else if (element.languages.includes(filter.language)) {
-                        continue;
-                    } else {
-                        filteredRes.splice(filteredRes.indexOf(element), 0, '');
-                        continue;
-                    }
-                }
-            }
-            
+        }
+
+        if (filter) {
+            let result = galleryArray;
             if (filter.searchTerm) {
-                let caseSafeTerm = filter.searchTerm.toLowerCase();
-
-                for (let element of filteredRes) {
-                    for (let each of element.languages) {
-                        if (each.toLowerCase().includes(caseSafeTerm)) {
-                            continue;
-                        }
-                    }
-
-                    if (element.name.toLowerCase().includes(caseSafeTerm)) {
-                        continue;
-                    } else {
-                        filteredRes.splice(filteredRes.indexOf(element), 0, '');
-                        continue;
-                    }
-                }
+                let termLower = filter.searchTerm.toLowerCase();
+                result = result.filter(obj => obj.name.toLowerCase().includes(termLower));
             }
-
-            for (let element of filteredRes) {
-                if (element.inProgress === filter.inProgress) {
-                    continue;
-                } else {
-                    filteredRes.splice(filteredRes.indexOf(element), 0, '');
-                    continue;
-                }
+            if (filter.language) {
+                let adjustedLang = ((filter.language === 'PostgreSQL' || filter.language === "Express") ? "PERN" : filter.language);
+                result = result.filter(obj => obj.languages.includes(adjustedLang));
             }
-
-            setResults(filteredRes.map(each => each.jsx));
+            if (filter.inProgress) {
+                result = result.filter(obj => obj.inProgress === filter.inProgress);
+            }
+            
+            setResults(result.map(each => each.jsx));
         }
     }, [filter]);
 
