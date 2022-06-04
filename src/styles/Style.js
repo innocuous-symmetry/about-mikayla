@@ -6,7 +6,8 @@ export const DocumentStyle = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        height: '100vh',
+        minHeight: '100vh',
+        height: '100%',
     },
     linkStyle: {
         color: deepPurple[300],

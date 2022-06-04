@@ -24,9 +24,9 @@ function App() {
 
       */}
       
-      <main>
-        <BrowserRouter>
-          <Navbar />
+      <BrowserRouter>
+        <Navbar />
+          <main>
             <Routes>
               <Route path='/' element={<Welcome />} />
               <Route path='/about-me' element={<AboutMe />} />
@@ -35,8 +35,8 @@ function App() {
               <Route path='/links' element={<Links />} />
               <Route path='/creative-works' element={<CreativeWorks />} />
             </Routes>
-        </BrowserRouter>
-      </main>
+          </main>
+      </BrowserRouter>
 
     </div>
   );
